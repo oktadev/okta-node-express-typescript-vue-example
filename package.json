@@ -1,0 +1,46 @@
+{
+  "name": "ts-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "copy-assets": "ts-node tools/copyAssets",
+    "prebuild": "npm run clean && tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc && npm run copy-assets",
+    "dev:build": "npm run build && node dist/index.js",
+    "dev": "nodemon --watch src -e ts --exec npm run dev:build",
+    "initdb": "ts-node tools/initdb",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "David Neal",
+    "email": "david@reverentgeek.com",
+    "url": "https://reverentgeek.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/dotenv": "^4.0.3",
+    "@types/express": "^4.16.0",
+    "@types/fs-extra": "^5.0.4",
+    "@types/pg": "^7.4.10",
+    "@types/shelljs": "^0.8.0",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.4",
+    "rimraf": "^2.6.2",
+    "shelljs": "^0.8.2",
+    "ts-jest": "^23.1.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "fs-extra": "^7.0.0",
+    "pg-monitor": "^1.0.0",
+    "pg-promise": "^8.4.6"
+  }
+}

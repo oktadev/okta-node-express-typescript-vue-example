@@ -1,0 +1,7 @@
+.vscode/
+dist/
+node_modules/
+scratch/
+.env
+.DS_Store
+*.log
