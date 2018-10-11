@@ -1,11 +1,11 @@
-import {GuitarsRepository} from "./guitars";
+import { GuitarsRepository } from "./guitars";
 
 // Database Interface Extensions:
 interface IExtensions {
-    guitars: GuitarsRepository;
+	guitars: GuitarsRepository;
 }
 
 export {
-    IExtensions,
-    GuitarsRepository,
+	IExtensions,
+	GuitarsRepository
 };
