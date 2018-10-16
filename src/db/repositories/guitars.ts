@@ -24,8 +24,24 @@ export class GuitarsRepository {
 	// It is also an example of mapping HTTP requests into query parameters;
 	public add( values: any ) {
 		return this.db.one( sql.add, {
-			name: values.name,
-			userId: values.userId
+			brand: values.brand,
+			color: values.color,
+			model: values.model,
+			userId: values.userId,
+			year: values.year
+		} );
+	}
+
+	// Updates a record and returns the full object;
+	// It is also an example of mapping HTTP requests into query parameters;
+	public update( values: any ) {
+		return this.db.one( sql.update, {
+			brand: values.brand,
+			color: values.color,
+			id: values.id,
+			model: values.model,
+			userId: values.userId,
+			year: values.year
 		} );
 	}
 
@@ -40,7 +56,7 @@ export class GuitarsRepository {
 	// Tries to find a user guitar from user id + name;
 	public find( values: any ) {
 		return this.db.any( sql.find, {
-			name: `%${ values.name }%`,
+			search: `%${ values.search }%`,
 			userId: values.userId
 		} );
 	}

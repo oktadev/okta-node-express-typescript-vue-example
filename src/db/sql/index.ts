@@ -8,7 +8,8 @@ export = {
 		all: sql( "guitars/all.sql" ),
 		find: sql( "guitars/find.sql" ),
 		remove: sql( "guitars/remove.sql" ),
-		total: sql( "guitars/total.sql" )
+		total: sql( "guitars/total.sql" ),
+		update: sql( "guitars/update.sql" )
 	}
 };
 

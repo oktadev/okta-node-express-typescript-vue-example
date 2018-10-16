@@ -1,6 +1,6 @@
 const register = async ( { db, api }: { db: any, api: any } ) => {
 	api.post( "/guitars/add", ( req: any, userId: string ) => {
-		return db.guitars.create( { userId, ...req.body } );
+		return db.guitars.add( { userId, ...req.body } );
 	} );
 
 	api.remove( "/guitars/remove/:id", ( req: any, userId: string ) => {

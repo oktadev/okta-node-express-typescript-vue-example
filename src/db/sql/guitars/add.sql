@@ -1,31 +1,25 @@
-INSERT INTO ${schema~}.guitars( user_id
+INSERT INTO ${schema~}.guitars( 
+    user_id
     , brand
     , model
     , year
-    , body_type
     , color
-    , number_of_strings
-    , hasPickups
-    , hasMIDI
-    , bridge_type )
+--    , body_type
+--    , number_of_strings
+--    , hasPickups
+--    , hasMIDI
+--    , bridge_type
+)
 VALUES( ${userId}
     , ${brand}
     , ${model}
     , ${year}
-    , ${bodyType}
     , ${color}
-    , ${numberOfStrings}
-    , ${hasPickups}
-    , ${hasMidi}
-    , ${bridgeType} )
+--    , ${bodyType}
+--    , ${numberOfStrings}
+--    , ${hasPickups}
+--    , ${hasMIDI}
+--    , ${bridgeType}
+)
 RETURNING 
     id
-    , brand
-    , model
-    , year
-    , body_type
-    , color
-    , number_of_strings
-    , hasPickups
-    , hasMIDI
-    , bridge_type

@@ -6,20 +6,62 @@
 <body>
     <% include partials/nav %>
     <div class="container">
-        <h2 class="header"><%= user.name %>'s Guitar Inventory</h2>
-    </div>
-    <div id="app">
-        <ul>
-            <li v-for="guitar in guitars">
-                {{ guitar.brand }}
-            </li>
-        </ul>
-        <p v-if="noGuitars">No guitars yet!</p>
+        <div id="app">
+            <div class="row" id="guitarList">
+                <h3>Guitar list</h3>
+                <table v-if="hazGuitars">
+                    <thead>
+                        <tr>
+                            <th>Brand</th>
+                            <th>Model</th>
+                            <th>Year</th>
+                            <th>Color</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="guitar in guitars">
+                            <td>{{ guitar.brand }}</td>
+                            <td>{{ guitar.model }}</td>
+                            <td>{{ guitar.year }}</td>
+                            <td>{{ guitar.color }}</td>
+                            <td>
+                                <button id="guitarDelete" @click="deleteGuitar(guitar.id)" class="btn-small"><i class="material-icons right">delete</i>Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p v-if="noGuitars">No guitars yet!</p>
+            </div>
+            <div class="row" id="guitarEdit">
+                <h3>Add a guitar</h3>
+                <form class="col s12" @submit.prevent="addGuitar">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input v-model="brand" placeholder="Paul Reed Smith" id="brand" type="text" class="validate">
+                            <label for="brand">Brand</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input v-model="model" placeholder="Custom 24" id="model" type="text" class="validate">
+                            <label for="model">Model</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input v-model="year" placeholder="2005" id="year" type="text" class="validate">
+                            <label for="brand">Year</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input v-model="color" placeholder="Whale Blue" id="color" type="text" class="validate">
+                            <label for="model">Color</label>
+                        </div>
+                    </div>
+                    <button id="guitarEditSubmit" class="btn" type="submit"><i class="material-icons right">send</i>Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
     <% include partials/footer %>
-    <script>
-        const isLoggedIn = <%= user ? true: false %>;
-    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
