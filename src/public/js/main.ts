@@ -32,7 +32,14 @@ new Vue( { // eslint-disable-line no-new
 			};
 			axios
 				.post( "/api/guitars/add", guitar )
-				.then( this.loadGuitars )
+				.then( () => {
+					this.$refs.year.focus();
+					this.brand = "";
+					this.color = "";
+					this.model = "";
+					this.year = "";
+					this.loadGuitars();
+				} )
 				.catch( ( err: any ) => {
 					// tslint:disable no-console
 					console.log( err ); // eslint-disable-line no-console
