@@ -29,9 +29,6 @@ const initializeApp = ( app: any ) => {
 		secret: process.env.APP_SECRET
 	} ) );
 	app.use( oidc.router );
-	app.use( "/api/access-token", oidc.ensureAuthenticated(), async ( req: any, res: any ) => {
-		res.send( req.userContext.tokens.access_token );
-	} );
 };
 
 export { client, initializeApp, verifier, oidc };

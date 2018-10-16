@@ -1,34 +1,19 @@
+import * as api from "./api";
 import * as auth from "./auth";
-import * as guitars from "./guitars";
 
 const register = async ( app: any, db: any, oidc: any ) => {
-	type IHandler = ( req: any, userId: string ) => any;
-	const requestHandler = ( handler: IHandler, req: any, res: any ) => {
-		const userId = req.userContext.userinfo.sub;
-		handler( req, userId )
-			.then( ( data: any ) => {
-				res.json( data );
-			} )
-			.catch( ( error: any ) => {
-				res.json( { error: error.message || error } );
-			} );
-	};
-	const api = {
-		get: ( url: string, handler: IHandler ) => {
-			app.get( `/api${ url }`, oidc.ensureAuthenticated(),
-				( req: any, res: any ) => requestHandler( handler, req, res ) );
-		},
-		post: ( url: string, handler: IHandler ) => {
-			app.post( `/api${ url }`, oidc.ensureAuthenticated(),
-				( req: any, res: any ) => requestHandler( handler, req, res ) );
-		},
-		remove: ( url: string, handler: IHandler ) => {
-			app.delete( `/api${ url }`, oidc.ensureAuthenticated(),
-				( req: any, res: any ) => requestHandler( handler, req, res ) );
-		}
-	};
-	guitars.register( { db, api } );
-	auth.register( app );
+	api.register( app, db, oidc );
+	auth.register( app, oidc );
+
+	app.get( "/", ( req: any, res: any ) => {
+		const user = req.userContext ? req.userContext.userinfo : null;
+		res.render( "index", { isAuthenticated: req.isAuthenticated(), user } );
+	} );
+
+	app.get( "/guitars", oidc.ensureAuthenticated(), ( req: any, res: any ) => {
+		const user = req.userContext ? req.userContext.userinfo : null;
+		res.render( "guitars", { isAuthenticated: req.isAuthenticated(), user } );
+	} );
 };
 
 export { register };

@@ -7,9 +7,10 @@
     "clean": "rimraf dist/*",
     "copy-assets": "ts-node tools/copyAssets",
     "prebuild": "npm run clean && tslint -c tslint.json -p tsconfig.json --fix",
-    "build": "tsc && npm run copy-assets",
+    "build:parcel": "parcel build src/public/js/main.ts -d dist/public/js",
+    "build": "tsc && npm run copy-assets && npm run build:parcel",
     "dev:build": "npm run build && node dist/index.js",
-    "dev": "nodemon --watch src -e ts --exec npm run dev:build",
+    "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:build",
     "initdb": "ts-node tools/initdb",
     "prestart": "npm run build",
     "start": "node dist/index.js",
@@ -22,20 +23,25 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/dotenv": "^4.0.3",
     "@types/express": "^4.16.0",
     "@types/express-session": "^1.15.11",
     "@types/fs-extra": "^5.0.4",
+    "@types/node": "^10.11.7",
     "@types/pg": "^7.4.10",
     "@types/shelljs": "^0.8.0",
+    "@types/vue": "^2.0.0",
     "eslint": "^5.6.0",
     "eslint-config-leankit": "^4.5.0",
     "eslint-plugin-typescript": "^0.12.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.4",
+    "parcel-bundler": "^1.10.3",
     "rimraf": "^2.6.2",
     "shelljs": "^0.8.2",
     "ts-jest": "^23.10.2",
+    "ts-loader": "^5.2.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.1",
     "typescript-eslint-parser": "^19.0.1"
@@ -44,12 +50,18 @@
     "@okta/jwt-verifier": "0.0.12",
     "@okta/oidc-middleware": "^1.0.0",
     "@okta/okta-sdk-nodejs": "^1.2.0",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "fs-extra": "^7.0.0",
     "pg-monitor": "^1.0.0",
-    "pg-promise": "^8.4.6"
+    "pg-promise": "^8.4.6",
+    "vue": "^2.5.17"
+  },
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.common.js"
   }
 }

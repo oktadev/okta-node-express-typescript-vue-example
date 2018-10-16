@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include partials/head %>
+</head>
+<body>
+    <% include partials/nav %>
+    <div class="container">
+        <h2 class="header"><%= user.name %>'s Guitar Inventory</h2>
+    </div>
+    <div id="app">
+        <ul>
+            <li v-for="guitar in guitars">
+                {{ guitar.brand }}
+            </li>
+        </ul>
+        <p v-if="noGuitars">No guitars yet!</p>
+    </div>
+    <% include partials/footer %>
+    <script>
+        const isLoggedIn = <%= user ? true: false %>;
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

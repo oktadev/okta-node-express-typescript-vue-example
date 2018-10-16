@@ -1,0 +1,14 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Guitar Inventory</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/guitars">My Guitars</a></li>
+            <% if ( isAuthenticated ) { %>
+            <li><a href="/logout">Logout</a></li>
+            <% } %>
+            <% if ( !isAuthenticated ) { %>
+            <li><a href="/login">Login</a></li>
+            <% } %>
+        </ul>
+    </div>
+</nav>
