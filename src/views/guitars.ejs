@@ -26,7 +26,7 @@
                             <td>{{ guitar.model }}</td>
                             <td>{{ guitar.color }}</td>
                             <td>
-                                <button id="guitarDelete" @click="deleteGuitar(guitar.id)" class="btn-small"><i class="material-icons right">delete</i>Delete</button>
+                                <button id="guitarDelete" @click="confirmDeleteGuitar(guitar.id)" class="btn-small"><i class="material-icons right">delete</i>Delete</button>
                             </td>
                         </tr>
                     </tbody>
@@ -58,6 +58,16 @@
                     </div>
                     <button id="guitarEditSubmit" class="btn" type="submit"><i class="material-icons right">send</i>Submit</button>
                 </form>
+            </div>
+            <div id="deleteConfirm" ref="deleteConfirm" class="modal">
+                <div class="modal-content">
+                    <h4>Confirm delete</h4>
+                    <p>Delete {{ selectedGuitar }}?</p>
+                </div>
+                <div class="modal-footer">
+                    <button @click="deleteGuitar(selectedGuitarId)" class="modal-close btn-flat">Ok</button>
+                    <button class="modal-close btn-flat">Cancel</button>
+                </div>
             </div>
         </div>
     </div>

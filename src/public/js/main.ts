@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as M from "materialize-css";
 import Vue from "vue";
 
 // tslint:disable no-unused-expression
@@ -18,6 +19,8 @@ new Vue( { // eslint-disable-line no-new
 			guitars: [],
 			isLoading: true,
 			model: "",
+			selectedGuitar: "",
+			selectedGuitarId: 0,
 			year: ""
 		};
 	},
@@ -44,6 +47,15 @@ new Vue( { // eslint-disable-line no-new
 					// tslint:disable no-console
 					console.log( err ); // eslint-disable-line no-console
 				} );
+		},
+		confirmDeleteGuitar( id: string ) {
+			const guitar = this.guitars.find( ( g ) => g.id === id );
+			this.selectedGuitar = `${ guitar.year } ${ guitar.brand } ${ guitar.model }`;
+			this.selectedGuitarId = guitar.id;
+			const dc = this.$refs.deleteConfirm;
+			const modal = M.Modal.init( dc );
+			// const modal = M.Modal.getInstance( dc );
+			modal.open();
 		},
 		deleteGuitar( id: string ) {
 			axios

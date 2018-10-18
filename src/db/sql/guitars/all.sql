@@ -12,3 +12,4 @@ SELECT
 
 FROM    ${schema~}.guitars
 WHERE   user_id = ${userId}
+ORDER BY year, brand, model
