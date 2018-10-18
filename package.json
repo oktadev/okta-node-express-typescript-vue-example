@@ -50,9 +50,7 @@
     "typescript-eslint-parser": "^20.0.0"
   },
   "dependencies": {
-    "@okta/jwt-verifier": "0.0.13",
     "@okta/oidc-middleware": "^1.0.1",
-    "@okta/okta-sdk-nodejs": "^1.2.0",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
