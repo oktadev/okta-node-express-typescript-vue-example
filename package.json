@@ -50,8 +50,8 @@
     "typescript-eslint-parser": "^20.0.0"
   },
   "dependencies": {
-    "@okta/jwt-verifier": "0.0.12",
-    "@okta/oidc-middleware": "^1.0.0",
+    "@okta/jwt-verifier": "0.0.13",
+    "@okta/oidc-middleware": "^1.0.1",
     "@okta/okta-sdk-nodejs": "^1.2.0",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
@@ -60,7 +60,7 @@
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "fs-extra": "^7.0.0",
-    "materialize-css": "^1.0.0-rc.2",
+    "materialize-css": "^1.0.0",
     "pg-monitor": "^1.0.0",
     "pg-promise": "^8.5.0",
     "vue": "^2.5.17"
