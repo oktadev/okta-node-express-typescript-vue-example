@@ -33,5 +33,24 @@ docker run -d --name guitar-db -p 5432:5432 -e 'POSTGRES_PASSWORD=p@ssw0rd42' po
 OKTA_ORG_URL=https://dev-123456.oktapreview.com
 ```
 
+## Launching application
 
+To run the application in development mode:
 
+```bash
+npm run dev
+```
+
+By default, the web application should now be running at [http://localhost:8080](http://localhost:8080).
+
+## Links
+
+This example uses [Okta's Node.js OIDC Middleware](https://www.npmjs.com/package/@okta/oidc-middleware).
+
+## Help
+
+Please post any questions as comments on the [blog post](), or visit our [Okta Developer Forums](https://devforum.okta.com/). You can also email developers@okta.com if you would like to create a support ticket.
+
+## License
+
+Apache 2.0, see [LICENSE](LICENSE).
