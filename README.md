@@ -3,14 +3,14 @@
 ## Requirements
 
 * [Node.js](https://nodejs.org) version 8+
-* [Docker](https://www.docker.com/) or some other instance of [PostgreSQL](https://www.postgresql.org/)
+* [Docker](https://www.docker.com/) (or some other instance of [PostgreSQL](https://www.postgresql.org/))
 
-## Setup
+## Development setup
 
 * Clone or download this repository
 * Install modules using `npm install`
 * Copy `.env.sample` to `.env`
-* Set up [PostgreSQL with Docker](https://docs.docker.com/samples/library/postgres/). With docker installed, use these two commands to create an instance of PostgreSQL for the application:
+* Set up [PostgreSQL with Docker](https://docs.docker.com/samples/library/postgres/). With docker installed, use the following two commands to create an instance of PostgreSQL for the application. Feel free to change the name and password for the database.
 
 ```bash
 docker pull postgres:latest
@@ -26,7 +26,7 @@ docker run -d --name guitar-db -p 5432:5432 -e 'POSTGRES_PASSWORD=p@ssw0rd42' po
     2. Click "Web" and click Next
     3. Name your application, and verify the Base and Login URIs are correct. By default, the web application will run locally at http://localhost:8080. Click Done.
 
-* On the Application screen, under the General tab, you'll find a section for "Client Credentials." You will need to copy the values for "Client ID" and "Client secret" and paste them into the `.env` file for `OKTA_CLIENT_ID` and `OKTA_CLIENT_SECRET`, respectively.
+* On the Application screen under the General tab you will find a section for "Client Credentials." You will need to copy the values for "Client ID" and "Client secret" and paste them into the `.env` file for `OKTA_CLIENT_ID` and `OKTA_CLIENT_SECRET`, respectively.
 * Copy the URL for your Okta developer account (e.g. `https://dev-123456-admin.oktapreview.com`) and paste it into the `.env` file as the value for `OKTA_ORG_URL`. Remove `-admin` from the URL. The setting should look similar to:
 
 ```
@@ -45,7 +45,17 @@ By default, the web application should now be running at [http://localhost:8080]
 
 ## Links
 
-This example uses [Okta's Node.js OIDC Middleware](https://www.npmjs.com/package/@okta/oidc-middleware).
+This example application uses: 
+
+* [Node.js](https://nodejs.org)
+* [TypeScript](https://www.typescriptlang.org/)
+* [Express](https://expressjs.com/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [EJS](https://github.com/mde/ejs)
+* [Okta's Node.js OIDC Middleware](https://www.npmjs.com/package/@okta/oidc-middleware)
+* [Vue](https://vuejs.org/)
+* [Materialize](https://materializecss.com/)
+* [Axios](https://github.com/axios/axios)
 
 ## Help
 
