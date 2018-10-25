@@ -2,8 +2,8 @@
 
 ## Requirements
 
-* [Node.js](https://nodejs.org) version 8+
-* [Docker](https://www.docker.com/) (or some other instance of [PostgreSQL](https://www.postgresql.org/))
+* Install [Node.js](https://nodejs.org) version 8+
+* Install [Docker](https://www.docker.com/) (or some other instance of [PostgreSQL](https://www.postgresql.org/))
 
 ## Development setup
 
