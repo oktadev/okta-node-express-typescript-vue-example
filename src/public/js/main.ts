@@ -49,7 +49,7 @@ new Vue( { // eslint-disable-line no-new
 				} );
 		},
 		confirmDeleteGuitar( id: string ) {
-			const guitar = this.guitars.find( ( g ) => g.id === id );
+			const guitar = this.guitars.find( ( g: any ) => g.id === id );
 			this.selectedGuitar = `${ guitar.year } ${ guitar.brand } ${ guitar.model }`;
 			this.selectedGuitarId = guitar.id;
 			const dc = this.$refs.deleteConfirm;
