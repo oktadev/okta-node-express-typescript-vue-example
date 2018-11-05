@@ -7,16 +7,16 @@ CREATE TABLE IF NOT EXISTS guitars (
     , user_id varchar(50) NOT NULL
     , brand varchar(50) NOT NULL
     , model varchar(50) NOT NULL
-    , year smallint NULL
---    , body_type varchar(50) NULL
+    , year smallint NULL 
     , color varchar(50) NULL
---    , number_of_strings smallint NULL
---    , hasPickups bool NULL
---    , hasMIDI bool NULL
---    , bridge_type varchar(50) NULL
 );
 
--- Year, Brand, Model, Color, 
--- Type (electric, acoustic, bass, acoustic bass, resonator, steel, pedal steel), 
--- number of strings, Body (solid, semi-hollow, hollow), 
--- Has Pickups, Has MIDI, bridge type (fixed, tremolo)
+/* 
+Other properties you may consider:
+    * Type (electric, acoustic, bass, acoustic bass, resonator, steel, pedal steel)
+    * Number of strings
+    * Body (solid, semi-hollow, hollow)
+    * Has Pickups
+    * Has MIDI
+    * Bridge type (fixed, tremolo)
+*/

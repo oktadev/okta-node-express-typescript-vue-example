@@ -26,7 +26,7 @@ function sql( file: string ): QueryFile {
 	const qf: QueryFile = new QueryFile( fullPath, options );
 
 	if ( qf.error ) {
-		// tslint:disable no-console
+		// tslint:disable-next-line:no-console
 		console.error( qf.error ); // eslint-disable-line no-console
 	}
 
