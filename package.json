@@ -1,7 +1,7 @@
 {
   "name": "guitar-inventory",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sample Node.js application built with TypeScript",
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist/*",
@@ -25,7 +25,7 @@
     "url": "https://reverentgeek.com"
   },
   "keywords": [],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "@okta/oidc-middleware": "^1.0.2",
     "axios": "^0.18.0",
