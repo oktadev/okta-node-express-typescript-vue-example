@@ -1,5 +1,7 @@
 # Example Node.js API using Express, TypeScript, Vue, and PostgreSQL
 
+This example application shows how to create a Node.js Express web app using TypeScript. Please read [Use TypeScript to Build a Node API with Express](https://developer.okta.com/blog/2018/11/15/node-express-typescript) to see how this app was created.
+
 ## Requirements
 
 * Install [Node.js](https://nodejs.org) version 8+
