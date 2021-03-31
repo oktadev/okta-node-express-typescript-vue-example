@@ -24,9 +24,9 @@ docker run -d --name guitar-db -p 5432:5432 -e 'POSTGRES_PASSWORD=p@ssw0rd42' po
 * Create a free [Okta Developer Account](https://developer.okta.com/signup/)
 * Set up a new Okta application
 
-    1. Click Applications in the top menu and then click "Add Application"
-    2. Click "Web" and click Next
-    3. Name your application, and verify the Base and Login URIs are correct. By default, the web application will run locally at http://localhost:8080. Click Done.
+    1. In the Applications section, click "Add Application"
+    2. Select "Web" and click Next
+    3. Name your application, and set the Login Redirect URIs to `http://localhost:8080/authorization-code/callback`. By default, the web application will run locally at http://localhost:8080. Click Save.
 
 * On the Application screen under the General tab you will find a section for "Client Credentials." You will need to copy the values for "Client ID" and "Client secret" and paste them into the `.env` file for `OKTA_CLIENT_ID` and `OKTA_CLIENT_SECRET`, respectively.
 * Copy the URL for your Okta developer account (e.g. `https://dev-123456-admin.oktapreview.com`) and paste it into the `.env` file as the value for `OKTA_ORG_URL`. Remove `-admin` from the URL. The setting should look similar to:
