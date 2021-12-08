@@ -9,6 +9,7 @@ export const register = ( app: any ) => {
 		client_secret: process.env.OKTA_CLIENT_SECRET,
 		issuer: `${ process.env.OKTA_ORG_URL }/oauth2/default`,
 		redirect_uri: `${ process.env.HOST_URL }/authorization-code/callback`,
+		appBaseUrl:`${ process.env.HOST_URL }`,
 		scope: "openid profile"
 	} );
 
