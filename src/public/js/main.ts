@@ -12,21 +12,19 @@ new Vue( { // eslint-disable-line no-new
 			return this.isLoading === false && this.guitars.length === 0;
 		}
 	},
-	data() {
-		return {
-			brand: "",
-			color: "",
-			guitars: [],
-			isLoading: true,
-			model: "",
-			selectedGuitar: "",
-			selectedGuitarId: 0,
-			year: ""
-		};
+	data: {
+		brand: "",
+		color: "",
+		guitars: [],
+		isLoading: true,
+		model: "",
+		selectedGuitar: "",
+		selectedGuitarId: 0,
+		year: ""
 	},
 	el: "#app",
 	methods: {
-		addGuitar() {
+		addGuitar: function() {
 			const guitar = {
 				brand: this.brand,
 				color: this.color,
@@ -48,7 +46,7 @@ new Vue( { // eslint-disable-line no-new
 					console.log( err ); // eslint-disable-line no-console
 				} );
 		},
-		confirmDeleteGuitar( id: string ) {
+		confirmDeleteGuitar: function( id: string ) {
 			const guitar = this.guitars.find( ( g: any ) => g.id === id );
 			this.selectedGuitar = `${ guitar.year } ${ guitar.brand } ${ guitar.model }`;
 			this.selectedGuitarId = guitar.id;
@@ -57,7 +55,7 @@ new Vue( { // eslint-disable-line no-new
 			// const modal = M.Modal.getInstance( dc );
 			modal.open();
 		},
-		deleteGuitar( id: string ) {
+		deleteGuitar: function( id: string ) {
 			axios
 				.delete( `/api/guitars/remove/${ id }` )
 				.then( this.loadGuitars )
@@ -66,7 +64,7 @@ new Vue( { // eslint-disable-line no-new
 					console.log( err ); // eslint-disable-line no-console
 				} );
 		},
-		loadGuitars() {
+		loadGuitars: function() {
 			axios
 				.get( "/api/guitars/all" )
 				.then( ( res: any ) => {
@@ -79,7 +77,7 @@ new Vue( { // eslint-disable-line no-new
 				} );
 		}
 	},
-	mounted() {
+	mounted: function() {
 		return this.loadGuitars();
 	}
 } );
