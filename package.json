@@ -27,7 +27,7 @@
   "keywords": [],
   "license": "Apache-2.0",
   "dependencies": {
-    "@okta/oidc-middleware": "^4.3.0",
+    "@okta/oidc-middleware": "^5.0.0",
     "axios": "^0.24.0",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.7",
